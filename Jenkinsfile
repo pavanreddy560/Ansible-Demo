@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Ansible Script'){
              steps {
-                 ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'myhosts.inv', playbook: 'ansible.yml'
+                 ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'myhosts', playbook: 'ansible.yml'
              }
         }  
           

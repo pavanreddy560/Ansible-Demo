@@ -13,6 +13,6 @@
 
     - name: Deploy static website
       copy:
-         src: index.html
+         src: /var/lib/ubuntu/webapp.war
          dest: /var/www/html/index.html
          mode: '777'

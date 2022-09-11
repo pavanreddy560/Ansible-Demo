@@ -1,0 +1,18 @@
+---
+- hosts: db
+  become: True
+  tasks:
+    - name: Install the latest version of Apache
+    yum:
+      name: apache2
+      state: latest
+  - name: Start service httpd
+    service:
+      name: apache2
+      state: started
+
+    - name: Deploy static website
+      copy:
+         src: index.html
+         dest: /var/www/html/index.html
+         mode: '777'

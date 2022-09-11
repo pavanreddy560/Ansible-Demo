@@ -15,9 +15,9 @@ pipeline {
                 sh 'mvn clean install'           
             }
         }
-        stage('Ansible Script'){
+        stage('Artifacts Upload'){
              steps {
-                 ansiblePlaybook credentialsId: 'f74a9c5e-9ba0-430e-860b-00ecedc4e322', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'myhosts', playbook: 'ansible.yml'
+                 nexusArtifactUploader credentialsId: 'nexus', groupId: 'com.devops4solutions', nexusUrl: '44.203.200.106:808', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://44.203.200.106:8081/repository/maven-releases/', version: '1'
              }
         }  
           

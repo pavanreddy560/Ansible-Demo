@@ -26,7 +26,8 @@ pipeline {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
            
                         nexusArtifactUploader artifacts: [[artifactId: 'LoginWebApp', classifier: '', file: 'artifactPath', type: 'war'], [artifactId: 'LoginWebApp', classifier: '', file: 'pom.xml', type: 'pom']], credentialsId: 'nexus', groupId: 'com.devops4solutions', nexusUrl: '44.203.200.106:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://44.203.200.106:8081/repository/maven-releases/', version: '1'
-          else {
+                    }
+                        else {
                         error "*** File: ${artifactPath}, could not be found";
                     }
                }  

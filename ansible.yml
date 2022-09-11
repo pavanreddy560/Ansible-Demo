@@ -3,7 +3,7 @@
   become: True
   tasks:
     - name: Install the latest version of Apache
-    yum:
+    apt:
       name: apache2
       state: latest
   - name: Start service httpd

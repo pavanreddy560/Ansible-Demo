@@ -1,5 +1,5 @@
 ---
-- hosts: 
+- hosts: db
   remote_user: ubuntu
   become: yes
   tasks:

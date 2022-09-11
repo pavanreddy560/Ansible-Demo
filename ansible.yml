@@ -14,5 +14,5 @@
   - name: Copy file
     copy:
       src: /var/lib/jenkins/workspace/ansible-project/target/LoginWebApp-1.war
-      dest: /var/www/html/index.html
+      dest: /var/www/html
       mode: '777'

@@ -45,7 +45,7 @@ pipeline {
         }
        stage('Ansible Deploy'){
           steps { 
-                    sh 'ansible-playbook -i /root/hosts ansible.yml'
+                    sh """ sudo ansible-playbook -i /root/hosts ansible.yml """
                  } 
        }
     }      

@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  remote_user: jenkins
+  remote_user: ubuntu
   become: yes
   tasks:
     - maven_artifact:

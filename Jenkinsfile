@@ -3,6 +3,13 @@ pipeline {
    tools {
         maven 'Maven3'
     }
+   environment {     
+            NEXUS_VERSION = "nexus3"
+            NEXUS_PROTOCOL = "http"
+            NEXUS_URL = "172.31.86.198:8081"
+            NEXUS_REPOSITORY = "maven-releases"
+            NEXUS_CREDENTIAL_ID = "nexus"
+    } 
     agent any
     stages {
         stage('Cloning Git') {
@@ -15,9 +22,9 @@ pipeline {
                 sh 'mvn clean install'           
             }
         }
-        stage('Artificats Upload'){
-           steps {  
-              script { 
+        stage('Push to Nexus'){
+           steps {
+                script {
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
@@ -25,14 +32,30 @@ pipeline {
                     artifactExists = fileExists artifactPath;
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-           
-                        nexusArtifactUploader artifacts: [[artifactId: 'LoginWebApp', classifier: '', file: 'artifactPath', type: 'war'], [artifactId: 'LoginWebApp', classifier: '', file: 'pom.xml', type: 'pom']], credentialsId: 'nexus', groupId: 'com.devops4solutions', nexusUrl: '44.202.34.209:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://44.202.34.209:8081/repository/maven-releases/', version: '1'
-                    }
-                        else {
+                        nexusArtifactUploader(
+                            nexusVersion: NEXUS_VERSION,
+                            protocol: NEXUS_PROTOCOL,
+                            nexusUrl: NEXUS_URL,
+                            groupId: pom.groupId,
+                            version: pom.version,
+                            repository: NEXUS_REPOSITORY,
+                            credentialsId: NEXUS_CREDENTIAL_ID,
+                            artifacts: [
+                                [artifactId: pom.artifactId,
+                                classifier: '',
+                                file: artifactPath,
+                                type: pom.packaging],
+                                [artifactId: pom.artifactId,
+                                classifier: '',
+                                file: "pom.xml",
+                                type: "pom"]
+                            ]
+                        );
+                    } else {
                         error "*** File: ${artifactPath}, could not be found";
                     }
                }  
-             }
            }  
+        }
         } 
  }

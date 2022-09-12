@@ -1,17 +1,14 @@
 ---
 - hosts: all
-  remote_user: root
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-  tasks:
-    - debug: var=ansible_host
   become: yes
   tasks:
-    - maven_artifact:
-        group_id: com.devops4solutions
-        artifact_id: LoginWebApp
-        repository_url: 'http://44.202.34.209:8081/repository/maven-releases/com/devops4solutions/LoginWebApp/1/LoginWebApp-1.war'
-        version: latest
-        username: admin
-        password: admin
-        dest: /opt/apache-tomcat-9.0.65/webapps
+   - name: Download a WAR File to the Tomcat webapps directory to be deployed
+     community.general.maven_artifact:
+       group_id: com.devops4solutions
+       artifact_id: LoginWebApp
+       extension: war
+       repository_url: 'http://44.202.34.209:8081/repository/maven-releases/com/devops4solutions/LoginWebApp/1/LoginWebApp-1.war'
+       username: admin
+       password: admin
+       dest: /var/lib/apache-tomcat-9.0.65/webapps/web-app.war
+

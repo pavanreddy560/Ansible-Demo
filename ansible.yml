@@ -10,5 +10,5 @@
        repository_url: 'http://44.202.34.209:8081/repository/maven-releases/'
        username: admin
        password: admin
-       dest: /var/lib/apache-tomcat-9.0.65/webapps/web-app.war
+       dest: /opt/apache-tomcat-9.0.65/webapps
 

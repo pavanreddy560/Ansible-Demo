@@ -44,7 +44,7 @@ pipeline {
            }  
         }
        stage('Ansible Deploy'){
-          steps { ansible-playbook -i myhosts ansible.yml
+          steps { ansiblePlaybook credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: 'myhosts', playbook: 'ansible.yml'
                  
           } 
        }   

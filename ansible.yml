@@ -3,7 +3,7 @@
   become: yes
   tasks:
    - name: Download a WAR File to the Tomcat webapps directory to be deployed
-     community.general.maven_artifact:
+     maven_artifact:
        group_id: com.devops4solutions
        artifact_id: LoginWebApp
        extension: war

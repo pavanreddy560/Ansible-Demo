@@ -6,6 +6,7 @@
         group_id: com.devops4solutions
         artifact_id: LoginWebApp
         repository_url: 'http://44.202.34.209:8081/repository/maven-releases/com/devops4solutions/LoginWebApp/1/LoginWebApp-1.war'
+        version: latest
         username: admin
         password: admin
         dest: /opt/apache-tomcat-9.0.65/webapps

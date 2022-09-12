@@ -43,6 +43,10 @@ pipeline {
                }  
            }  
         }
-       
+       stage('Ansible Deploy'){
+          steps { 
+                    sh 'ansible-playbook -i /root/hosts apache.yml'
+                 } 
+       }
     }      
  }

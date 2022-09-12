@@ -8,14 +8,14 @@
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <distributionManagement>
-   <snapshotRepository>
+    <snapshotRepository>
       <id>nexus-snapshots</id>
       <url>http://44.201.225.83:8081/repository/maven-snapshots/</url>
-   </snapshotRepository>
+    </snapshotRepository>
    <Repository>
       <id>nexus-release</id>
       <url>http://44.201.225.83:8081/repository/maven-releases/</url>
-   </Repository>
+    </Repository>
   </distributionManagement>
   <dependencies>
      <dependency>

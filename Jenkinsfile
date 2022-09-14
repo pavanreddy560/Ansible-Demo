@@ -19,7 +19,7 @@ pipeline {
         }  
         stage('Maven Build'){
             steps {
-                sh 'mvn clean deploy'           
+                sh 'mvn clean deploy -DmuleDeploy'           
             }
         }
         stage('Push to Nexus'){

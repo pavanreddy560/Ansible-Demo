@@ -11,4 +11,4 @@
        version: "{{ ArtificatVersion }}"
        username: admin
        password: admin
-       dest: /opt/apache-tomcat-9.0.65/webapps
+       dest: /opt/apache-tomcat-9.0.65/webapps/

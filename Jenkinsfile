@@ -3,6 +3,9 @@ pipeline {
    tools {
         maven 'Maven3'
     }
+   parameters {
+        string(name: 'ArtifactVersion', description: "Artfact Version")
+    }
    environment {     
             NEXUS_VERSION = "nexus3"
             NEXUS_PROTOCOL = "http"
@@ -45,8 +48,8 @@ pipeline {
         }
        stage('Ansible Deploy'){
           steps { 
-                    sh """ sudo ansible-playbook -i myhosts ansible.yml """
-                 } 
+                    sh 'sudo ansible-playbook -i myhosts ansible.yml --extra-vars version=${ArtifactVersion}'
+          } 
        }
     }      
  }

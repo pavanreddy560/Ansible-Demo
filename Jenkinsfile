@@ -49,7 +49,9 @@ pipeline {
       
        stage('Ansible Deploy'){
           steps {    
-                   sh "sudo ansible-playbook -i myhosts ansible.yml --extra-vars '{"ArtifactVersion": "${params.ArtifactVersion}"}'"
+             Script {
+                      sh "sudo ansible-playbook -i myhosts ansible.yml --extra-vars '{"ArtifactVersion": "${params.ArtifactVersion}"}'"
+             }   
           } 
        }
     }      

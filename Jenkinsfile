@@ -4,7 +4,7 @@ pipeline {
         maven 'Maven3'
     }
    parameters {
-        string(name: 'ArtifactVersion', description: "Artfact Version")
+        string(name: 'ArtifactVersion', description: "Artifact Version")
     }
    environment {     
             NEXUS_VERSION = "nexus3"

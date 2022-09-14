@@ -8,6 +8,16 @@
   <version>0.1.5</version>
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <distributionManagement>
+   <repository>
+      <id>nexus-repository</id>
+      <url>http://3.95.33.150:8081/repository/maven-releases/</url>
+   </repository>
+   <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://3.95.33.150:8081/repository/maven-snapshots/</url>
+   </snapshotRepository> 
+  </distributionManagement>
   <dependencies>
      <dependency>
             <groupId>javax.servlet</groupId>

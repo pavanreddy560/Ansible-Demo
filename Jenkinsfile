@@ -43,11 +43,12 @@ pipeline {
                }  
            }  
         }
-       parameters {
-        string(name: 'ArtifactVersion', description: "Artfact Version")
-       }
+      
        stage('Ansible Deploy'){
-          steps { 
+          steps {    
+                   parameters {
+                                 string(name: 'ArtifactVersion', description: "Artfact Version")
+                   }
                     sh 'sudo ansible-playbook -i myhosts ansible.yml --extra-vars version=${ArtifactVersion}'
           } 
        }

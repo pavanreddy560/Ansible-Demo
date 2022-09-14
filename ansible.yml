@@ -8,7 +8,7 @@
        artifact_id: LoginWebApp
        extension: war
        repository_url: 'http://3.95.33.150:8081/repository/maven-releases/'
-       version: "{{ ArtifactVersion }}"
+       version: "{{ version }}"
        username: admin
        password: admin
        dest: /opt/apache-tomcat-9.0.65/webapps

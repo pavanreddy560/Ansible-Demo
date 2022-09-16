@@ -5,6 +5,7 @@ pipeline {
     }
    parameters { 
                   string(name: 'ArtifactVersion', defaultValue: '0.1.1', description: "Please Provide Artifact Version")
+                  string(name: 'nexus_ip', description: 'Please Provide nexus ip")
               }
    environment {     
             NEXUS_VERSION = "nexus3"
@@ -50,7 +51,7 @@ pipeline {
        stage('Ansible Deploy'){
           steps {    
              script {
-                      sh """ sudo ansible-playbook -i myhosts ansible.yml --extra-vars '{"ArtifactVersion": "${params.ArtifactVersion}"}' """
+                      sh """ sudo ansible-playbook -i myhosts ansible.yml --extra-vars '{"ArtifactVersion": "${params.ArtifactVersion}", "nexus-ip": "${params.nexus_ip}"}' """
              }   
           } 
        }

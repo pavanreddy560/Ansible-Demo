@@ -4,7 +4,7 @@ pipeline {
         maven 'Maven3'
     }
    parameters { 
-                  string(name: 'ArtifactVersion', defaultValue: '0.1.1', description: "Please Provide Artifact Version");
+                  string(name: 'ArtifactVersion', defaultValue: '0.1.1', description: "Please Provide Artifact Version"),
                   string(name: 'nexus_ip', description: 'Please Provide nexus ip")
               }
    environment {     

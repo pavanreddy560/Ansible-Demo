@@ -7,8 +7,7 @@
        group_id: com.devops4solutions
        artifact_id: LoginWebApp
        extension: war
-       repository_url: 'http://3.88.11.65:8081/repository/maven-releases/'
+       repository_url: 'http://"${nexus_ip}":8081/repository/maven-releases/'
        version: "{{ ArtifactVersion }}"
-       username: admin
-       password: admin
+       vars_files : config.yml
        dest: /opt/apache-tomcat-9.0.65/webapps/

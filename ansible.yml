@@ -11,7 +11,7 @@
        extension: war
        repository_url: 'http://"${nexus_ip}":8081/repository/maven-releases/'
        version: "{{ ArtifactVersion }}"
-       username: {{ username }}
-       password: {{ password }}
+       username: "{{ username }}"
+       password: "{{ password }}"
        dest: /opt/apache-tomcat-9.0.65/webapps/
        

@@ -7,7 +7,7 @@ pipeline {
               string(name: 'ArtifactVersion', defaultValue: '0.1.1', description: "Please Provide Artifact Version")
               }
    parameters { 
-              string(name: 'nexus_ip', description: 'Please Provide nexus ip")
+              string(name: 'nexus_ip', description: "Please Provide nexus ip")
               }                  
    environment {     
             NEXUS_VERSION = "nexus3"

@@ -51,7 +51,7 @@ pipeline {
        stage('Ansible Deploy'){
           steps {    
              script {
-                      sh """ sudo ansible-playbook -i myhosts ansible.yml --extra-vars '{"ArtifactVersion": "${params.ArtifactVersion}", "nexus-ip": "${params.nexus_ip}"}' """
+                      sh """ sudo ansible-playbook -i myhosts ansible.yml --vault-password-file config.txt --extra-vars '{"ArtifactVersion": "${params.ArtifactVersion}", "nexus-ip": "${params.nexus_ip}"}' """
              }   
           } 
        }

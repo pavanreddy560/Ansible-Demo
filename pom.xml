@@ -5,17 +5,17 @@
   <groupId>com.devops4solutions</groupId>
   <artifactId>LoginWebApp</artifactId>
   <packaging>war</packaging>
-  <version>0.1.7</version>
+  <version>0.1.8</version>
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <distributionManagement>
    <repository>
       <id>nexus-release</id>
-      <url>http://54.175.3.37:8081/repository/maven-releases/</url>
+      <url>http://52.23.241.233:8081/repository/maven-releases/</url>
    </repository>
    <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://54.175.3.37:8081/repository/maven-snapshots/</url>
+      <url>http://52.23.241.233:8081/repository/maven-snapshots/</url>
    </snapshotRepository> 
   </distributionManagement>
   <dependencies>
